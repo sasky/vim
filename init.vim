@@ -9,6 +9,7 @@
 " nerd tree, open from position of active buffer
 
 "get a list of symbols in a file COC?
+"import namespace in php?
 "get PHP implementation working?
 
 "---------------------------------------------------------
@@ -33,6 +34,7 @@ Plug 'vim-airline/vim-airline-themes'
 " servers 
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " see if I need this, little bit of work to set up
 "Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mhinz/vim-startify'
@@ -42,6 +44,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-fugitive'
+"adds project edit history to fzf 
+Plug 'pbogut/fzf-mru.vim'
 " Use this for Finding in Project 
 "Plug 'jremmen/vim-ripgrep'
 " Use this for finding and replacing in project 
@@ -97,10 +102,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" this is not working, so Ctrl W + o closes all splits and leaves the one in
-" focus, need a better shortcut for this
+" full screen for active buffer 
+nnoremap <C-G> <C-W>o 
 "
-nnoremap <Leader>a <C-W>o 
 " Open new split panes to right and bottom, which feels more natural than Vim’s default:
 set splitbelow
 set splitright
@@ -155,10 +159,11 @@ function! ToggleSpellCheck()
     echo "Spellcheck ON"
   else
     echo "Spellcheck OFF"
+  endif
 endfunction
 
 " Leader S to toggle spelling on or off
-nnoremap <silent> <Leader>S :call ToggleSpellCheck()<CR>
+nnoremap <silent> <Leader>z :call ToggleSpellCheck()<CR>
 " todo spelling , why is the directory fucked? 
 
 "---------------------------------------------------------
@@ -221,13 +226,27 @@ nnoremap <silent> <Leader>S :call ToggleSpellCheck()<CR>
 
 "Fzf Settings
 "
-"
-"<C-V> : Open the selected file in a vertical split
-"<C-c> : dismiss fzf picker
-nnoremap <C-p> :<C-u>FZF<CR>
-command! LS Buffers 
+" https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html
 
+"<C-V> : Open the selected file in a vertical split
+" <ctrl-p> and <ctrl-j> are alternatives for the up/down keys
+nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <silent> <Leader>l :Buffers<CR>
+" git status apparently 
+nnoremap <silent> <Leader>g :GFiles?<CR>
 " to Search the project use 
+
+" These are to show commit history using the vim-fugitive
+ let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+
+nnoremap <silent> <Leader>c  :Commits<CR>
+nnoremap <silent> <Leader>bc :BCommits<CR>
+
+" The SPACE m key combination will launch the fzf window with a list of recently opened-by-Vim files.
+nnoremap <silent> <Leader>m :FZFMru<CR>
+
 " :Rg ( which uses ripgrep)
 " :Rg searchTerm directory/structure
 " :Rg serchTerm -g '*.php'
@@ -236,13 +255,12 @@ command! LS Buffers
 "  cclose to close the quickfix buffer
 " Might need to make a shortcut for cclose
 "
-" Wrap in try/catch to avoid errors on initial install before plugin is available
 "
 " "Nerd Tree Settings
 "
 " m in NERDTree on a file or directory to bring up menu
-map <Leader>b :NERDTreeToggle<CR>
-map <Leader>B :NERDTreeFind <CR>
+map <silent><Leader>b :NERDTreeToggle<CR>
+map <silent><Leader>B :NERDTreeFind<CR>
 
 let NERDTReeShowHidden = 1
 
@@ -250,7 +268,11 @@ let NERDTReeShowHidden = 1
 "------ INTEL SENSE
 "---------------------------------------------------------
 "
+" for the default vim pop up menu, <ctrl-n> and <ctrl-p> can select though the
+" list
 " === Coc.nvim === "
+"
+"
 " :CocInstall coc-tsserver coc-json coc-html coc-css coc-phpls
 
 
@@ -272,4 +294,4 @@ let NERDTReeShowHidden = 1
 
 "---------------------------------------------------------
 "------ GETTING AROUND THE FILE 
-"---------------------------------------------------------
+
