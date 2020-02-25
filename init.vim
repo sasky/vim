@@ -42,7 +42,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-fugitive'
 "adds project edit history to fzf 
@@ -60,6 +60,14 @@ Plug 'pbogut/fzf-mru.vim'
 " yank history one
 " make terminal easier one 
 " vim sub one that has realtime preview ( from vimcasts)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'coc-css', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+
 call plug#end()
 
 
@@ -275,6 +283,55 @@ let NERDTReeShowHidden = 1
 "
 " :CocInstall coc-tsserver coc-json coc-html coc-css coc-phpls
 
+" Settings from the coc.nvim readme
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 
 
 
@@ -286,6 +343,11 @@ let NERDTReeShowHidden = 1
 "------|| LANGUAGE - PHP
 "---------------------------------------------------------
 
+"$hello = $mes<tab>
+"// gave me 
+"$hello = $$message;
+"I fixed this with the following autocommand in my init.nvim
+"autocmd BufNewFile,BufRead *.php set iskeyword+=$
 
 "---------------------------------------------------------
 "------|| LANGUAGE - JS 
