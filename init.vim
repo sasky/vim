@@ -60,13 +60,16 @@ Plug 'pbogut/fzf-mru.vim'
 " yank history one
 " make terminal easier one 
 " vim sub one that has realtime preview ( from vimcasts)
+
+    
+" Language server stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'coc-css', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+" coc-css causes a vim scripts error, figure this out later
+"Plug 'coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
