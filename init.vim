@@ -2,7 +2,12 @@
 "---------------------------------------------------------
 "------|| Annoying things that I want to sort out
 "---------------------------------------------------------
-"feels fucking slow and clunky
+"https://intelephense.com/
+"https://github.com/tpope/vim-commentary
+"https://github.com/tpope/vim-sensible
+"https://github.com/tpope/vim-eunuch
+"https://github.com/tpope/vim-unimpaired
+
 "coc is fucked 
 "how write a command to open the vimrc??
 "fzf naviage list
