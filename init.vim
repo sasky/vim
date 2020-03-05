@@ -40,6 +40,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-eunuch'
 " see if I need this, little bit of work to set up
 "Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mhinz/vim-startify'
@@ -137,7 +138,7 @@ set cursorline
 " using / or ? ), but it doesn't seem I need this? 
 nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 " variations availible are 
-let g:material_style='oceanic'
+let g:material_style='dark'
 syntax on
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -214,6 +215,9 @@ nnoremap <silent> <Leader>z :call ToggleSpellCheck()<CR>
 " @:         repeat EX command
 " *          search for the word under the cursor (second fav command)
 
+" find and replace in the whole file
+":%s/search/replace/g
+
 "NORMAL MODE
 "
 " Counts, you and increase and decrease a number by hovering over it and ..
@@ -225,6 +229,8 @@ nnoremap <silent> <Leader>z :call ToggleSpellCheck()<CR>
 "---------------------------------------------------------
 "------|| CUT COPY PASTE FIND REPLACE
 "---------------------------------------------------------
+
+set clipboard=unnamed
 
 " Registers 
 " "*            yanks to system clip board
@@ -271,14 +277,18 @@ nnoremap <silent> <Leader>m :FZFMru<CR>
 "  cclose to close the quickfix buffer
 " Might need to make a shortcut for cclose
 "
-"
+" This overrides the :Rg search provided by FZF so I can search in .gitignore
+" directories and add directories to search after the term 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore '.<q-args>, 1,
+  \   fzf#vim#with_preview(), <bang>0)
 " "Nerd Tree Settings
 "
 " m in NERDTree on a file or directory to bring up menu
-map <silent><Leader>b :NERDTreeToggle<CR>
-map <silent><Leader>B :NERDTreeFind<CR>
-
-let NERDTReeShowHidden = 1
+nnoremap <silent><Leader>B :NERDTreeToggle<CR>
+nnoremap <silent><Leader>b :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 
 "---------------------------------------------------------
 "------ INTEL SENSE
