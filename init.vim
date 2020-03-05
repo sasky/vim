@@ -8,13 +8,21 @@
 "https://github.com/tpope/vim-eunuch
 "https://github.com/tpope/vim-unimpaired
 
+"maybe this one for symbols
+"https://github.com/liuchengxu/vista.vim
+"
 "coc is fucked 
+
 "how write a command to open the vimrc??
+
 "fzf naviage list
+
 " nerd tree, open from position of active buffer
 
 "get a list of symbols in a file COC?
+
 "import namespace in php?
+
 "get PHP implementation working?
 
 "---------------------------------------------------------
@@ -76,7 +84,8 @@ Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
 " coc-css causes a vim scripts error, figure this out later
 "Plug 'coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-
+" also coc-lists
+" but loading them this way seems brokenish
 call plug#end()
 
 
@@ -110,7 +119,7 @@ filetype plugin indent on
 
 " Allow buffer switching without saving 
 set hidden                      
-
+:command Rmswap :!rm -r ~/.local/share/nvim/swap/*<Enter> 
 "------ SPLITS
 
 " We can use different key mappings for easy navigation between splits to save a keystroke. 
@@ -126,7 +135,7 @@ nnoremap <C-G> <C-W>o
 set splitbelow
 set splitright
 "vrc to open up the v.rc file
-nnoremap vrc :open ~/.config/nvim/init.vim<Enter>
+:command Vrc :open ~/.config/nvim/init.vim<Enter>
 
 "---------------------------------------------------------
 "------|| MAKE IT PRETTY
@@ -215,9 +224,6 @@ nnoremap <silent> <Leader>z :call ToggleSpellCheck()<CR>
 " @:         repeat EX command
 " *          search for the word under the cursor (second fav command)
 
-" find and replace in the whole file
-":%s/search/replace/g
-
 "NORMAL MODE
 "
 " Counts, you and increase and decrease a number by hovering over it and ..
@@ -277,19 +283,17 @@ nnoremap <silent> <Leader>m :FZFMru<CR>
 "  cclose to close the quickfix buffer
 " Might need to make a shortcut for cclose
 "
-" This overrides the :Rg search provided by FZF so I can search in .gitignore
-" directories and add directories to search after the term 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore '.<q-args>, 1,
-  \   fzf#vim#with_preview(), <bang>0)
+"
 " "Nerd Tree Settings
 "
 " m in NERDTree on a file or directory to bring up menu
-nnoremap <silent><Leader>B :NERDTreeToggle<CR>
-nnoremap <silent><Leader>b :NERDTreeFind<CR>
-let NERDTreeShowHidden=1
+map <silent><Leader>b :NERDTreeToggle<CR>
+map <silent><Leader>B :NERDTreeFind<CR>
 
+let NERDTReeShowHidden = 1
+"nerd tree opens up if no file is specified
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "---------------------------------------------------------
 "------ INTEL SENSE
 "---------------------------------------------------------
@@ -337,7 +341,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> k :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -350,8 +354,14 @@ endfunction
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-
-
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <Leader>p  :CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <Leader>P  :CocList -I symbols<cr>
+" Buffer List
+nnoremap <leader>h  :CocList buffers<cr>
 
 "---------------------------------------------------------
 "------|| TERMINAL
