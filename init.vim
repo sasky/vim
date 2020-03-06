@@ -2,6 +2,10 @@
 "---------------------------------------------------------
 "------|| Annoying things that I want to sort out
 "---------------------------------------------------------
+"
+" Homescreen links change the project path when you go to them
+" White thing is to bright!
+"
 "https://intelephense.com/
 "https://github.com/tpope/vim-commentary
 "https://github.com/tpope/vim-sensible
@@ -224,6 +228,9 @@ nnoremap <silent> <Leader>z :call ToggleSpellCheck()<CR>
 " @:         repeat EX command
 " *          search for the word under the cursor (second fav command)
 
+" find and replace in the whole file
+":%s/search/replace/g
+
 "NORMAL MODE
 "
 " Counts, you and increase and decrease a number by hovering over it and ..
@@ -287,13 +294,24 @@ nnoremap <silent> <Leader>m :FZFMru<CR>
 " "Nerd Tree Settings
 "
 " m in NERDTree on a file or directory to bring up menu
-map <silent><Leader>b :NERDTreeToggle<CR>
-map <silent><Leader>B :NERDTreeFind<CR>
+nnoremap <silent><Leader>B :NERDTreeToggle<CR>
+nnoremap <silent><Leader>b :NERDTreeFind<CR>
 
-let NERDTReeShowHidden = 1
+let NERDTreeShowHidden=1
 "nerd tree opens up if no file is specified
+
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" This overrides the :Rg search provided by FZF so I can search in .gitignore
+" directories and add directories to search after the term 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore '.<q-args>, 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+
+
 "---------------------------------------------------------
 "------ INTEL SENSE
 "---------------------------------------------------------
@@ -341,7 +359,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> k :call <SID>show_documentation()<CR>
+nnoremap <leader><cr>:call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
