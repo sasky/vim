@@ -15,17 +15,13 @@
 "maybe this one for symbols
 "https://github.com/liuchengxu/vista.vim
 "
-"coc is fucked 
 
 "how write a command to open the vimrc??
 
-"fzf naviage list
+"fzf navigate list
 
-" nerd tree, open from position of active buffer
 
-"get a list of symbols in a file COC?
 
-"import namespace in php?
 
 "get PHP implementation working?
 
@@ -105,16 +101,21 @@ set number
 set relativenumber
 " also need to figure out how to get some space between the ruler and the file
 set ruler
-" what does this do again? 
+
+" Use case insensitive search, except when using capital letters
 set ignorecase smartcase 
 
+" Better command-line completion
+set wildmenu
+" show whitespace
+" set list
 
 " Set Proper Tabs
 set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
-
+        
 " Always display the status line , what is this? 
 set laststatus=2
 
@@ -124,6 +125,12 @@ filetype plugin indent on
 " Allow buffer switching without saving 
 set hidden                      
 :command Rmswap :!rm -r ~/.local/share/nvim/swap/*<Enter> 
+
+" Stop certain movements from always going to the first character of a line.
+" While this behaviour deviates from that of Vi, it does what most users
+" coming from other editors would expect.
+set nostartofline
+
 "------ SPLITS
 
 " We can use different key mappings for easy navigation between splits to save a keystroke. 
@@ -139,7 +146,12 @@ nnoremap <C-G> <C-W>o
 set splitbelow
 set splitright
 "vrc to open up the v.rc file
-:command Vrc :open ~/.config/nvim/init.vim<Enter>
+:command Vrc :e ~/.config/nvim/init.vim
+
+"----terminal
+"
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 "---------------------------------------------------------
 "------|| MAKE IT PRETTY
@@ -206,6 +218,12 @@ nnoremap <silent> <Leader>z :call ToggleSpellCheck()<CR>
 " Marks are cool 
 " mm to mark a place, `m to get back to it 
 
+" Marcos are cool
+" q{char} to start recording so qq
+" then q to stop
+"
+" To play it @{char} or @@ to play the last recorded marco
+"
 "---------------------------------------------------------
 "------|| EDITING IN THE FILE 
 "---------------------------------------------------------
@@ -249,10 +267,16 @@ set clipboard=unnamed
 " "*            yanks to system clip board
 "for example "*yy is copy line to clipboard
 ""*p pastes it form clipboard
+" "_ for the delete forever registor
+"  so "_daw to not put the word into the registor
 
 "type :reg to see what is stored in each registor, it is a history, to access
 "type "{char}p
 
+" When the auto complete  is open, close it with <C-x> then <C-l> will show a
+" list of line wise completions
+"
+" Keep pressing <Ctrl-X> then <Ctrl-l> to copy multiple lines
 
 "---------------------------------------------------------
 "------|| GETTING AROUND THE PROJECT 
