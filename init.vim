@@ -2,15 +2,20 @@
 "---------------------------------------------------------
 "------|| Annoying things that I want to sort out
 "---------------------------------------------------------
+" What ever is highlighting braces is very annoying!
+"
 "
 " Homescreen links change the project path when you go to them
 " White thing is to bright!
+"
+" line plugin, more room to show the filename
 "
 "https://intelephense.com/
 "https://github.com/tpope/vim-commentary
 "https://github.com/tpope/vim-sensible
 "https://github.com/tpope/vim-eunuch
 "https://github.com/tpope/vim-unimpaired
+
 
 "maybe this one for symbols
 "https://github.com/liuchengxu/vista.vim
@@ -95,7 +100,9 @@ call plug#end()
 
 let mapleader="\<Space>"
 
-
+" disable highlighting of parans ( it's confusing me in insert mode) 
+"set NoMatchParen
+let loaded_matchparen = 1
 
 set number
 set relativenumber
@@ -162,16 +169,22 @@ set cursorline
 " Hitting Leader Space ( so space space ) to hide the search results ( from
 " using / or ? ), but it doesn't seem I need this? 
 nnoremap <silent> <Leader><Space> :nohlsearch<CR>
-" variations availible are 
-let g:material_style='dark'
-syntax on
+
+
 set termguicolors
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+"set background=dark
+"set t_Co=256
+
+"let g:two_firewatch_italics=1
+"colorscheme two-firewatch
+"let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme
+
+" Oceanic
 set background=dark
-set t_Co=256
 colorscheme vim-material
 let g:airline_theme='material'
-
 "todo get rid of vbar
 "line numbers a bit further away
 
@@ -193,7 +206,8 @@ let g:airline_theme='material'
 "en_gb – Great Britain
 "en_nz – New Zealand
 "en_us – USA
-set spell spelllang=en_au
+set nospell 
+set spelllang=en_au
 " Toggle spellchecking
 function! ToggleSpellCheck()
   set spell!
