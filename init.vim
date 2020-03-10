@@ -2,7 +2,18 @@
 "---------------------------------------------------------
 "------|| Annoying things that I want to sort out
 "---------------------------------------------------------
-" What ever is highlighting braces is very annoying!
+" Tpope Surround
+"
+"Get the LSP spell checker working
+
+
+" Have another look at the PHP static tools
+" JS Pritier working
+" ESLint working
+"
+" Terminal edit the line??
+" Terminal start up faster?
+"
 "
 "
 " Homescreen links change the project path when you go to them
@@ -11,7 +22,6 @@
 " line plugin, more room to show the filename
 "
 "https://intelephense.com/
-"https://github.com/tpope/vim-commentary
 "https://github.com/tpope/vim-sensible
 "https://github.com/tpope/vim-eunuch
 "https://github.com/tpope/vim-unimpaired
@@ -54,8 +64,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+
 " see if I need this, little bit of work to set up
-"Plug 'stephpy/vim-php-cs-fixer'
+Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mhinz/vim-startify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'farmergreg/vim-lastplace'
@@ -271,6 +283,13 @@ nnoremap <silent> <Leader>z :call ToggleSpellCheck()<CR>
 " these can also have a number before them, like this 15<C-a> 
 "
 
+" Tpope's Commentry
+" gc{motion}              Comment or uncomment lines that {motion} moves over.
+" gcc                     Comment or uncomment [count] lines.
+"{Visual}gc              Comment or uncomment the highlighted lines.
+autocmd FileType php setlocal commentstring=//\ %s
+
+
 "---------------------------------------------------------
 "------|| CUT COPY PASTE FIND REPLACE
 "---------------------------------------------------------
@@ -462,6 +481,8 @@ omap af <Plug>(coc-funcobj-a)
 "------|| LANGUAGE - PHP
 "---------------------------------------------------------
 
+" run php cs fixer when a php file is saved
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 "$hello = $mes<tab>
 "// gave me 
 "$hello = $$message;
