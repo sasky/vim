@@ -3,6 +3,11 @@
 "------|| Annoying things that I want to sort out
 "---------------------------------------------------------
 " Tpope Surround
+" insept line erors
+" fix line lines (spelling)
+" search like on youtube
+" phpcsfixer working
+" no swap files? 
 "
 "Get the LSP spell checker working
 
@@ -40,6 +45,19 @@
 
 "get PHP implementation working?
 
+
+"---------------------------------------------------------
+"------|| Core Vim Tips
+"---------------------------------------------------------
+"
+"Use range command to select text above or below
+"For example :+8,+12t.
+"copys lines 8 to 12 reletiave to current line, and pastes them on this line
+":81,91t.<enter>
+" or yank them like this
+" :-81,-91y<enter>
+
+
 "---------------------------------------------------------
 "------|| PLUGINS
 "---------------------------------------------------------
@@ -58,18 +76,23 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'hzchirs/vim-material'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'terryma/vim-smooth-scroll'
 " not actually sure if I need these language packs now that I have language
 " servers 
+" what does this do?  
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" what does this do?  
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 
 " see if I need this, little bit of work to set up
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'mhinz/vim-startify'
+" what does this do?  
 Plug 'qpkorr/vim-bufkill'
+" what does this do?  
 Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -78,12 +101,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-fugitive'
 "adds project edit history to fzf 
 Plug 'pbogut/fzf-mru.vim'
-" Use this for Finding in Project 
-"Plug 'jremmen/vim-ripgrep'
-" Use this for finding and replacing in project 
-" investigate later 
-" https://www.mattlayman.com/blog/2019/supercharging-vim-blazing-fast-search/
-"Plug 'quickfix-reflector.vim'
 " Plugins to investigate 
 " tpope surrrond
 " tpope vim one
@@ -99,8 +116,9 @@ Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
 " coc-css causes a vim scripts error, figure this out later
-"Plug 'coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 " also coc-lists
 " but loading them this way seems brokenish
 call plug#end()
@@ -135,15 +153,20 @@ set shiftwidth=4
 set smarttab
 set expandtab
         
-" Always display the status line , what is this? 
-set laststatus=2
+" Always display the status line 
+set laststatus=1
 
 " Automatically detect file types. "
 filetype plugin indent on   
 
 " Allow buffer switching without saving 
 set hidden                      
-:command Rmswap :!rm -r ~/.local/share/nvim/swap/*<Enter> 
+
+" --- backup and swap files ---
+" I save all the time, those are annoying and unnecessary...
+set nobackup
+set nowritebackup
+set noswapfile
 
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
@@ -165,13 +188,17 @@ nnoremap <C-G> <C-W>o
 set splitbelow
 set splitright
 "vrc to open up the v.rc file
-:command Vrc :e ~/.config/nvim/init.vim
+nnoremap VRC :e ~/.config/nvim/init.vim<CR>
+nnoremap SRC :source ~/.config/nvim/init.vim<CR>
 
 "----terminal
 "
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
+" spartify plugin
+" dont change the dir from the start menu
+let g:startify_change_to_dir = 0
 "---------------------------------------------------------
 "------|| MAKE IT PRETTY
 "---------------------------------------------------------
@@ -181,7 +208,6 @@ set cursorline
 " Hitting Leader Space ( so space space ) to hide the search results ( from
 " using / or ? ), but it doesn't seem I need this? 
 nnoremap <silent> <Leader><Space> :nohlsearch<CR>
-
 
 set termguicolors
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -199,7 +225,13 @@ colorscheme vim-material
 let g:airline_theme='material'
 "todo get rid of vbar
 "line numbers a bit further away
+"Makes the background transparent on Alacritty
+hi! Normal ctermbg=NONE guibg=NONE 
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE 
 
+
+" make the sign column not have a colour ( most left hand error bar) 
+highlight clear SignColumn
 
 "---------------------------------------------------------
 "------ GENERAL UTILS
@@ -328,6 +360,11 @@ nnoremap <silent> <Leader>l :Buffers<CR>
 nnoremap <silent> <Leader>g :GFiles?<CR>
 " to Search the project use 
 
+let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
+
+nmap // :BLines<CR>
+nmap ?? :Rg<CR>
+
 " These are to show commit history using the vim-fugitive
  let g:fzf_commits_log_options = '--graph --color=always
   \ --format="%C(yellow)%h%C(red)%d%C(reset)
@@ -339,6 +376,11 @@ nnoremap <silent> <Leader>bc :BCommits<CR>
 " The SPACE m key combination will launch the fzf window with a list of recently opened-by-Vim files.
 nnoremap <silent> <Leader>m :FZFMru<CR>
 
+if has("nvim")
+    " Escape inside a FZF terminal window should exit the terminal window
+    " rather than going into the terminal's normal mode.
+    autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
+endif
 " :Rg ( which uses ripgrep)
 " :Rg searchTerm directory/structure
 " :Rg serchTerm -g '*.php'
@@ -362,12 +404,17 @@ let NERDTreeShowHidden=1
 
 " This overrides the :Rg search provided by FZF so I can search in .gitignore
 " directories and add directories to search after the term 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore '.<q-args>, 1,
-  \   fzf#vim#with_preview(), <bang>0)
+"command! -bang -nargs=* Rg
+ " \ call fzf#vim#grep(
+ " \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore '.<q-args>, 1,
+ " \   fzf#vim#with_preview(), <bang>0)
 
 
+" Smooth Scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 "---------------------------------------------------------
 "------ INTEL SENSE
@@ -389,7 +436,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -489,10 +536,14 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 "I fixed this with the following autocommand in my init.nvim
 "autocmd BufNewFile,BufRead *.php set iskeyword+=$
 
+let g:php_cs_fixer_config_file = '/Users/cam/Sites/iod/.php_cs'            " options: --config-file
 "---------------------------------------------------------
 "------|| LANGUAGE - JS 
 "---------------------------------------------------------
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+autocmd BufWritePost *.js silent! :CocCommand prettier.formatFile
+autocmd BufWritePost *.jsx silent! :CocCommand prettier.formatFile
 
 "---------------------------------------------------------
 "------ GETTING AROUND THE FILE 

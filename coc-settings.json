@@ -1,0 +1,6 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown","js","jsx"],
+    "coc.preferences.prettier.singleQuote":true,
+
+}
+
