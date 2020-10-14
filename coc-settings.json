@@ -1,6 +1,24 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown","js","jsx"],
-    "coc.preferences.prettier.singleQuote":true,
-
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "json",
+    "php",
+    "Markdown",
+    "js",
+    "jsx"
+  ],
+  "coc.preferences.prettier.singleQuote": true,
+  // explorer
+  "suggest.minTriggerInputLength": 3,
+  "explorer.width": 40,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": [
+      "expandable?",
+      "expand",
+      "open"
+    ],
+    "v": "open:vsplit"
+  }
 }
-
