@@ -19,7 +19,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     "no config plugin
     "
-    Plug 'jiangmiao/auto-pairs'                 " Auto pairs for '(' '[' '{'
+    "Plug 'jiangmiao/auto-pairs'                 " Auto pairs for '(' '[' '{'
     Plug 'sheerun/vim-polyglot'                 " Better Syntax Support
     Plug 'machakann/vim-highlightedyank'
 
@@ -31,7 +31,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "https://github.com/inkarkat/vim-ReplaceWithRegister
     "is.vim - incremental search improved
     Plug 'haya14busa/is.vim'    
-    
+    Plug 'qpkorr/vim-bufkill'    
     "https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
     " lets try this one out 
@@ -40,7 +40,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Little config Plugins
     Plug 'terryma/vim-smooth-scroll'
     Plug 'liuchengxu/vim-which-key'
-     
+    Plug 'vim-scripts/BufOnly.vim'     
     "FZF stuff
     
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

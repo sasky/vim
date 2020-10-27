@@ -86,5 +86,10 @@ inoremap <C-Space> <C-X><C-L>
 
 
 " Close a buffer with leader w
-nnoremap <silent> <Leader>w :bd<CR>
+" Trying this buff kill so hopefully the window will stay open 'qpkorr/vim-bufkill'    
+  
+nnoremap <silent> <Leader>w :BD<CR>
+" Close all other buffers with leader W
+" TODO , come back to this
+"nnoremap <silent> <Leader>W :%bd|e#|bd#<CR>
 

@@ -9,7 +9,7 @@ nmap <leader>p :Files<CR>
 
 
 let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
-
+let g:fzf_preview_window = 'up:50%'
 nmap // :BLines<CR>
 nmap ?? :Rg<CR>
 
@@ -26,15 +26,6 @@ endif
 "  cclose to close the quickfix buffer
 " Might need to make a shortcut for cclose
 "
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 
 
@@ -44,3 +35,7 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
  " \ call fzf#vim#grep(
  " \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore '.<q-args>, 1,
  " \   fzf#vim#with_preview(), <bang>0)
+ 
+
+ " How to set up directories to ignore per project
+ " https://github.com/junegunn/fzf.vim/issues/453#issuecomment-526791474

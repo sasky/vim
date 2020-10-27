@@ -7,6 +7,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { 't': '~/todoToday.md' },
             \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'a': '~/.config/alacritty/alacritty.yml' },
             \ { 'z': '~/.zshrc' },
             \ ]
 

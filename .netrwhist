@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/cam/Brain/Code Blog'
+let g:netrw_dirhist_3='/Users/cam/Brain'
+let g:netrw_dirhist_2='/Users/cam/Sites/iod/node_modules/iod-masterlib'
+let g:netrw_dirhist_1='/Users/cam/.nvm'

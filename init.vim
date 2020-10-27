@@ -1,20 +1,25 @@
 " Things to sort out 
 "
-" In the fzf overlay menu , ctrl-j is not working as down, because it's set to
-" change windows, how to stop this
+" Get php csfixer working properlly
+" Get More Git stuff into the work flow
+"   Jump to Changes using [] something
+"   Handle Merge Conficts
 "
-" Need some word wrapping I think
 "
+" Need some better word wrapping I think, with some space 
 "
+" Look at other no config plugins form that talk, white space, inset in
+" correct indentataion.. etc woop/AlE
+"
+" Snippets plugin maybe
+"
+" Which key mapping maybe 
 "
 " get FZF to search by file type 
 "
 "
 " get more familiar with the delete yank plugin
-"
-"
-"
-" Find that plugin that lets you jump and edit a text object that is in pairs
+" get more familiar with the text object ciwn plugin
 "
 "
 "
@@ -57,8 +62,12 @@ source $HOME/.config/nvim/vim-plug/start-screen.vim
 " or yank them like this
 " :-81,-91y<enter>
 
+":g/pattern/d - Remove lines matching pattern
+":g!/pattern/d - Remove lines that do NOT match the pattern
 
-" <ctrl-p> and <ctrl-j> are alternatives for the up/down keys
+
+
+" <ctrl-p> and <ctrl-n> are alternatives for the up/down keys
 
 
 "---------------------------------------------------------
@@ -131,4 +140,9 @@ source $HOME/.config/nvim/vim-plug/start-screen.vim
 " Keep pressing <Ctrl-X> then <Ctrl-l> to copy multiple linesE
 
 
+"Insert Mode
+"<Ctrl-r>% to print the filepath/name into the file
 
+" Close all buffers expect current One
+" (from this plugin https://github.com/vim-scripts/BufOnly.vim)
+" :Bonly
