@@ -14,9 +14,12 @@ vnoremap < <gv
 vnoremap > >gv
 
 " I hate escape more than anything else
-inoremap jk <Esc>
+inoremap jk <Esc>:w<CR>
 inoremap kj <Esc>
 
+" Center after next search
+nnoremap n nzz
+nnoremap N Nzz
 " Easy CAPS
 inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<Esc>
@@ -54,11 +57,19 @@ tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
 tnoremap <Esc> <C-\><C-n>
 
+"----terminal
+"
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 " Use alt + hjkl to resize windows
-nnoremap <silent> <M-j>    :resize -2<CR>
-nnoremap <silent> <M-k>    :resize +2<CR>
-nnoremap <silent> <M-h>    :vertical resize -2<CR>
-nnoremap <silent> <M-l>    :vertical resize +2<CR>
+" ˙ ∆ ˚ ¬ left down up right
+nnoremap ˙ :vertical resize -2<CR>
+
+" nnoremap ∆ :resize -2<CR>
+" nnoremap ˚ :resize +2<CR>
+
+
+nnoremap ¬ :vertical resize +2<CR>
 
 
 " Hitting Leader Space ( so space space ) to hide the search results ( from
@@ -92,4 +103,8 @@ nnoremap <silent> <Leader>w :BD<CR>
 " Close all other buffers with leader W
 " TODO , come back to this
 "nnoremap <silent> <Leader>W :%bd|e#|bd#<CR>
+"open the current window in a new tab ( usefull when I have multiple windows
+"open and want to make one full screen 
+nnoremap ƒ :tab split<CR>
+nnoremap Ï :tabc<CR>
 

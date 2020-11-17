@@ -1,10 +1,41 @@
-" Things to sort out 
+" Things to sort out  
+"
+"
+"background with two tone colours on lines
+"
+" cycle changes shortcut
+"
+" How to get the square cursor out of the inbuilt terminal?
+"
+" see if I can write a few small functions for the :-3,-6t. trick 
+"
+" Get into that snippets plugin, make some snippets for SS
+
+" Get into saving some stuff in special registors
+"
+" get phpcsfixer and priettier working good
+"
+" I think the ease of the Side bar naviadtion is what I am missing in VSCode,
+" Maybe learn the shortcuts, if If I can get it to a good work flow 
+"
+" Also I don't think I'm quite happy with file navigation 
+"
+"
+" Get the full file path better displayed
+"
+" Back and forth though change list  and Git Changes
+"
+"
+"quick function for command line copy ?
+"
 "
 " Get php csfixer working properlly
 " Get More Git stuff into the work flow
 "   Jump to Changes using [] something
 "   Handle Merge Conficts
 "
+"Maybe gice the inbuilt term another shot, would be nice to yank output from
+"the terminal
 "
 " Need some better word wrapping I think, with some space 
 "
@@ -49,6 +80,8 @@ source $HOME/.config/nvim/vim-plug/fzf.vim
 source $HOME/.config/nvim/vim-plug/vim-smooth-scroll.vim
 source $HOME/.config/nvim/vim-plug/commentry.vim
 source $HOME/.config/nvim/vim-plug/start-screen.vim
+
+autocmd TermOpen * set bufhidden=hide
 
 
 "---------------------------------------------------------
@@ -125,11 +158,10 @@ source $HOME/.config/nvim/vim-plug/start-screen.vim
 
 
 " Registers 
-" "*            yanks to system clip board
-"for example "*yy is copy line to clipboard
-""*p pastes it form clipboard
 " "_ for the delete forever registor
 "  so "_daw to not put the word into the registor
+" 
+" "{char} uses {char} registor 
 
 "type :reg to see what is stored in each registor, it is a history, to access
 "type "{char}p
@@ -146,3 +178,11 @@ source $HOME/.config/nvim/vim-plug/start-screen.vim
 " Close all buffers expect current One
 " (from this plugin https://github.com/vim-scripts/BufOnly.vim)
 " :Bonly
+"
+"
+" SPLITS 
+"
+" <C-w> s  split
+" <C-w> v   v split
+" <C-w> o   only
+" 
