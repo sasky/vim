@@ -5,20 +5,22 @@
     "php",
     "Markdown",
     "js",
-    "jsx"
+    "jsx",
+    "ts",
+    "tsx"
   ],
-  "coc.preferences.prettier.singleQuote": true,
+  "prettier.tslintIntegration": false,
   // explorer
-  "suggest.minTriggerInputLength": 3,
-  "explorer.width": 40,
+  "suggest.minTriggerInputLength": 2,
+  "explorer.width": 100,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
-    "<cr>": [
-      "expandable?",
-      "expand",
-      "open"
-    ],
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
-  }
+  },
+  // tabnine
+  "tabnine.priority": 10,
+  // eslint
+  "eslint.autoFixOnSave": true
 }

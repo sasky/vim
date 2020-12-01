@@ -65,7 +65,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
+" run prettier by :Prettier
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)

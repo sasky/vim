@@ -16,7 +16,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes' 
     Plug 'mhinz/vim-startify'
-    
+
+
     "no config plugin
     "
     "Plug 'jiangmiao/auto-pairs'                 " Auto pairs for '(' '[' '{'
@@ -25,10 +26,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'tpope/vim-surround'                   "TODO get docs for this to remind myself
     "https://github.com/tpope/vim-surround
+    
     Plug 'tpope/vim-commentary'    "TODO get docs for this to remind myself
     "https://github.com/tpope/vim-commentary
+    
     Plug 'inkarkat/vim-ReplaceWithRegister'       "TODO get docs for this to remind myself 
     "https://github.com/inkarkat/vim-ReplaceWithRegister
+
+    " Helper Unix Commans
+    Plug 'tpope/vim-eunuch'
+    "https://github.com/tpope/vim-eunuch 
+    "
     "is.vim - incremental search improved
     Plug 'haya14busa/is.vim'    
     Plug 'qpkorr/vim-bufkill'    

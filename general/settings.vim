@@ -31,7 +31,7 @@ set laststatus=2                        " Always display the status line
 set number                              " Line numbers
 set relativenumber			" line numbers relative to the current line
 set ignorecase smartcase 		" Use case insensitive search, except when using capital letters
-"set cursorline                          " Enable highlighting of the current line
+set cursorline                          " Enable highlighting of the current line
 set background=dark                     " tell vim what the background color looks like
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nobackup                            " This is recommended by coc

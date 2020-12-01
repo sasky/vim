@@ -108,3 +108,5 @@ nnoremap <silent> <Leader>w :BD<CR>
 nnoremap ƒ :tab split<CR>
 nnoremap Ï :tabc<CR>
 
+"option s to format a php file with cs-fixer (TODO, nneds work) 
+nnoremap ß :!php-cs-fixer fix % --quiet<CR>

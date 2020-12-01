@@ -1,9 +1,13 @@
 " Things to sort out  
 "
+" tabbine longer snippets
+" tabnine lower in list on autocomplete
+" tabnine try 2 chars
+"   
+" Take the time to learn util snippets and set up a couple of SS ones
 "
-"background with two tone colours on lines
+"Maybe look at Ranger again for moving files and directories around 
 "
-" cycle changes shortcut
 "
 " How to get the square cursor out of the inbuilt terminal?
 "
@@ -34,8 +38,6 @@
 "   Jump to Changes using [] something
 "   Handle Merge Conficts
 "
-"Maybe gice the inbuilt term another shot, would be nice to yank output from
-"the terminal
 "
 " Need some better word wrapping I think, with some space 
 "
@@ -54,7 +56,6 @@
 "
 "
 "
-" In Book a way todo maths in the command line?
 "
 " 
 "
@@ -88,6 +89,15 @@ autocmd TermOpen * set bufhidden=hide
 "------|| Core Vim Tips
 "---------------------------------------------------------
 "
+"
+
+" :changes - Show position of last 100 changes
+" g; -Jump backwards to the position of the previous change
+" g, - Jump forwards to the position of the next change
+
+"
+"
+"
 "Use range command to select text above or below
 "For example :+8,+12t.
 "copy's lines 8 to 12 relative to current line, and pastes them on this line
@@ -112,6 +122,9 @@ autocmd TermOpen * set bufhidden=hide
 "
 " Marks are cool 
 " mm to mark a place, `m to get back to it 
+" MM for a project wide mark
+" `M to get back to it 
+
 
 " Marcos are cool
 " q{char} to start recording so qq
