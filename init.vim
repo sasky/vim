@@ -199,3 +199,9 @@ autocmd TermOpen * set bufhidden=hide
 " <C-w> v   v split
 " <C-w> o   only
 " 
+"
+"---------------------------------------------------------
+"------|| COC shortcuts
+"---------------------------------------------------------
+
+"Leader o     outline mode

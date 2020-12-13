@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes' 
     Plug 'mhinz/vim-startify'
-
+    Plug 'phalkunz/vim-ss'
 
     "no config plugin
     "

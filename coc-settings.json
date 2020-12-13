@@ -12,7 +12,7 @@
   "prettier.tslintIntegration": false,
   // explorer
   "suggest.minTriggerInputLength": 2,
-  "explorer.width": 100,
+  "explorer.width": 40,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings.global": {
