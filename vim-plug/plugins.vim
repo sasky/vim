@@ -55,6 +55,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     Plug 'jesseleite/vim-agriculture'
+    " Plug 'wookayin/fzf-ripgrep.vim'
     
     "COC stuff
     
@@ -66,6 +67,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
+    Plug 'christoomey/vim-conflicted'
      
     " Language PHP
 

@@ -5,3 +5,4 @@
 " gcc                     Comment or uncomment [count] lines.
 "{Visual}gc              Comment or uncomment the highlighted lines.
 autocmd FileType php setlocal commentstring=//\ %s
+autocmd FileType twig setlocal commentstring={#\ %s \#}

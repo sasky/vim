@@ -9,8 +9,8 @@ let g:startify_bookmarks = [
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'a': '~/.config/alacritty/alacritty.yml' },
             \ { 'z': '~/.zshrc' },
+            \ { 'p': '/usr/local/etc/php/shared/php.ini' },
             \ ]
-
 
 let g:startify_session_autoload = 1
 let g:startify_session_delete_buffers = 1

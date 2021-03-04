@@ -26,7 +26,8 @@ endif
 "  cclose to close the quickfix buffer
 " Might need to make a shortcut for cclose
 "
-
+" dont populate file names in Rg
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 
 " This overrides the :Rg search provided by FZF so I can search in .gitignore

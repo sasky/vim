@@ -84,6 +84,9 @@ source $HOME/.config/nvim/vim-plug/start-screen.vim
 
 autocmd TermOpen * set bufhidden=hide
 
+" :set guicursor=
+" " Workaround some broken plugins which set guicursor indiscriminately.
+" :autocmd OptionSet guicursor noautocmd set guicursor=
 
 "---------------------------------------------------------
 "------|| Core Vim Tips

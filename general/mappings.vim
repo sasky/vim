@@ -105,8 +105,9 @@ nnoremap <silent> <Leader>w :BD<CR>
 "nnoremap <silent> <Leader>W :%bd|e#|bd#<CR>
 "open the current window in a new tab ( usefull when I have multiple windows
 "open and want to make one full screen 
+" option f for full screen, option F to close 
 nnoremap ƒ :tab split<CR>
 nnoremap Ï :tabc<CR>
 
 "option s to format a php file with cs-fixer (TODO, nneds work) 
-nnoremap ß :!php-cs-fixer fix % --quiet<CR>
+nnoremap ß :!php-cs-fixer fix % --quiet --allow-risky=yes<CR>
