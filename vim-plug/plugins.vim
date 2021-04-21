@@ -13,8 +13,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hardcoreplayers/oceanic-material'
     Plug 'kristijanhusak/vim-hybrid-material'
     Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes' 
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes' 
     Plug 'mhinz/vim-startify'
     Plug 'phalkunz/vim-ss'
 
@@ -29,9 +29,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     Plug 'tpope/vim-commentary'    "TODO get docs for this to remind myself
     "https://github.com/tpope/vim-commentary
-    
-    Plug 'inkarkat/vim-ReplaceWithRegister'       "TODO get docs for this to remind myself 
-    "https://github.com/inkarkat/vim-ReplaceWithRegister
+    Plug 'Yggdroot/indentLine'
 
     " Helper Unix Commans
     Plug 'tpope/vim-eunuch'
@@ -49,13 +47,21 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'terryma/vim-smooth-scroll'
     Plug 'liuchengxu/vim-which-key'
     Plug 'vim-scripts/BufOnly.vim'     
+
+
+
     "FZF stuff
-    
+
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     Plug 'jesseleite/vim-agriculture'
-    " Plug 'wookayin/fzf-ripgrep.vim'
     
     "COC stuff
     
@@ -73,5 +79,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'stephpy/vim-php-cs-fixer' " TODO need to get this working, hopefully on a per project then fall back to home dir
 
+    Plug 'inkarkat/vim-ReplaceWithRegister'       "TODO get docs for this to remind myself 
+    "https://github.com/inkarkat/vim-ReplaceWithRegister
 
 call plug#end()

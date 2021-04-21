@@ -42,3 +42,6 @@ hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 
 hi! CursorLine   cterm=NONE ctermbg=black guibg=black
+hi! statusline guibg=White  guifg=Black 
+hi! statuslineNC guibg=gray  guifg=Black 
+

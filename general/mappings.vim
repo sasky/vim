@@ -9,17 +9,22 @@ let mapleader=" "
 " let localleader=" "
 nnoremap <Space> <Nop>
 
+" insert an empty line without leaving normal mode
+
+" nnoremap <leader>o o<Esc>     
+" nnoremap <leader>O O<Esc>
+
 " Better indenting
 vnoremap < <gv
 vnoremap > >gv
 
 " I hate escape more than anything else
 inoremap jk <Esc>:w<CR>
-inoremap kj <Esc>
 
 " Center after next search
 nnoremap n nzz
 nnoremap N Nzz
+
 " Easy CAPS
 inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<Esc>
@@ -32,8 +37,9 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 " Move selected line / block of text in visual mode
 " shift + k to move up
 " shift + j to move down
-xnoremap K :move '<-2<CR>gv-gv
-xnoremap J :move '>+1<CR>gv-gv
+
+" xnoremap K :move '<-2<CR>gv-gv
+" xnoremap J :move '>+1<CR>gv-gv
 
 " Alternate way to save
 nnoremap <silent> <C-s> :w<CR>

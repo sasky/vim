@@ -1,4 +1,4 @@
-" Things to sort out  
+"' Things to sort out  
 "
 " tabbine longer snippets
 " tabnine lower in list on autocomplete
@@ -33,7 +33,6 @@
 "quick function for command line copy ?
 "
 "
-" Get php csfixer working properlly
 " Get More Git stuff into the work flow
 "   Jump to Changes using [] something
 "   Handle Merge Conficts
@@ -44,7 +43,6 @@
 " Look at other no config plugins form that talk, white space, inset in
 " correct indentataion.. etc woop/AlE
 "
-" Snippets plugin maybe
 "
 " Which key mapping maybe 
 "
@@ -71,11 +69,11 @@ source $HOME/.config/nvim/vim-plug/which-key.vim
 source $HOME/.config/nvim/themes/vim-material.vim
 "source $HOME/.config/nvim/themes/oceanic-material.vim
 "source $HOME/.config/nvim/themes/vim-hybrid-material.vim
-source $HOME/.config/nvim/themes/airline.vim
+"source $HOME/.config/nvim/themes/airline.vim
 
     
 " Plugin Configs
-
+  
 source $HOME/.config/nvim/vim-plug/coc.vim
 source $HOME/.config/nvim/vim-plug/fzf.vim
 source $HOME/.config/nvim/vim-plug/vim-smooth-scroll.vim
@@ -83,6 +81,8 @@ source $HOME/.config/nvim/vim-plug/commentry.vim
 source $HOME/.config/nvim/vim-plug/start-screen.vim
 
 autocmd TermOpen * set bufhidden=hide
+
+set statusline=%F
 
 " :set guicursor=
 " " Workaround some broken plugins which set guicursor indiscriminately.
