@@ -42,12 +42,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'wellle/targets.vim'
     " lets try this one out 
     Plug 'justinmk/vim-sneak'
-
+    Plug 'christoomey/vim-tmux-navigator'
     " Little config Plugins
     Plug 'terryma/vim-smooth-scroll'
     Plug 'liuchengxu/vim-which-key'
     Plug 'vim-scripts/BufOnly.vim'     
-
+    Plug 'sbdchd/neoformat'
 
 
     "FZF stuff
@@ -77,7 +77,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
      
     " Language PHP
 
-    Plug 'stephpy/vim-php-cs-fixer' " TODO need to get this working, hopefully on a per project then fall back to home dir
+    " Plug 'stephpy/vim-php-cs-fixer' " TODO need to get this working, hopefully on a per project then fall back to home dir
 
     Plug 'inkarkat/vim-ReplaceWithRegister'       "TODO get docs for this to remind myself 
     "https://github.com/inkarkat/vim-ReplaceWithRegister

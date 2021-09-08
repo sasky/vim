@@ -84,6 +84,13 @@ autocmd TermOpen * set bufhidden=hide
 
 set statusline=%F
 
+
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
 " :set guicursor=
 " " Workaround some broken plugins which set guicursor indiscriminately.
 " :autocmd OptionSet guicursor noautocmd set guicursor=

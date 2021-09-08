@@ -1,9 +1,25 @@
 " Basic Key Mappings
+" these should be taken care of by this plugin
+"    Plug 'christoomey/vim-tmux-navigator'
+" imap <C-h> <C-w>h
+" imap <C-j> <C-w>j
+" imap <C-k> <C-w>k
+" imap <C-l> <C-w>l
+"
+" Better window navigation
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+"
+"resing the panes with the arrow keys
+nnoremap <Left> :vertical resize -2<CR>
+nnoremap <Up> :resize -2<CR>
+nnoremap <Down> :resize +2<CR>
+nnoremap <Right> :vertical resize +2<CR>
 
-imap <C-h> <C-w>h
-imap <C-j> <C-w>j
-imap <C-k> <C-w>k
-imap <C-l> <C-w>l
+
+
 " g Leader key
 let mapleader=" "
 " let localleader=" "
@@ -50,11 +66,6 @@ nnoremap <silent> <C-c> <Esc>
 " <TAB>: completion.
 inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " Terminal window navigation
 tnoremap <C-h> <C-\><C-N><C-w>h
@@ -70,11 +81,8 @@ tnoremap <C-v><Esc> <Esc>
 " Use alt + hjkl to resize windows
 " ˙ ∆ ˚ ¬ left down up right
 nnoremap ˙ :vertical resize -2<CR>
-
 " nnoremap ∆ :resize -2<CR>
 " nnoremap ˚ :resize +2<CR>
-
-
 nnoremap ¬ :vertical resize +2<CR>
 
 
