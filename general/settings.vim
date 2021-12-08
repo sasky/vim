@@ -12,7 +12,7 @@ set fileencoding=utf-8                  " The encoding written to file
 set showtabline=0                       " Always show tabs
 set ruler              			" Show the cursor position all the time
 " set cmdheight=1                         " More space for displaying messages
-set signcolumn=yes			" Always show the signcolumn, otherwise it would shift the text each time
+set signcolumn=yes:1
 set wildmenu  				" Better command-line completion
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set mouse=a                             " Enable your mouse
