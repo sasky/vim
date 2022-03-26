@@ -50,6 +50,11 @@ nnoremap <silent> <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <silent> <S-TAB> :bprevious<CR>
 
+" when pasting in visual mode. stop the paste from putting the new test 
+" into the register
+xnoremap p "_dP
+
+
 " Move selected line / block of text in visual mode
 " shift + k to move up
 " shift + j to move down

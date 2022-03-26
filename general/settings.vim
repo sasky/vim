@@ -1,7 +1,8 @@
 " set leader key
 let g:mapleader = " "
 
-
+set sidescrolloff=999
+set scrolloff=999
 "syntax enable                           " Enables syntax highlighing
 "set hidden                              " Required to keep multiple buffers open multiple buffers
 "set nowrap                              " Display long lines as just one line
@@ -51,6 +52,7 @@ set laststatus=2                        " Always display the status line
 "set nocompatible
 "set ttyfast
 "set lazyredraw
+set redrawtime=10000
 
 set clipboard=unnamed			" Copy paste between vim and everything else
 "set autochdir                          " Your working directory will always be the same as your working directory

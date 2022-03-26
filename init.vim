@@ -1,5 +1,5 @@
 "' Things to sort out  
-"
+
 " tabbine longer snippets
 " tabnine lower in list on autocomplete
 " tabnine try 2 chars
@@ -7,7 +7,6 @@
 " Take the time to learn util snippets and set up a couple of SS ones
 "
 "Maybe look at Ranger again for moving files and directories around 
-"
 "
 " How to get the square cursor out of the inbuilt terminal?
 "
@@ -86,10 +85,10 @@ set statusline=%F
 
 
 
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * undojoin | Neoformat
+" augroup END
 
 " :set guicursor=
 " " Workaround some broken plugins which set guicursor indiscriminately.
