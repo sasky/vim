@@ -34,21 +34,13 @@ nnoremap <Space> <Nop>
 vnoremap < <gv
 vnoremap > >gv
 
-" I hate escape more than anything else
 inoremap jk <Esc>:w<CR>
 
 " Center after next search
 nnoremap n nzz
 nnoremap N Nzz
 
-" Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
 
-" TAB in general mode will move to text buffer
-nnoremap <silent> <TAB> :bnext<CR>
-" SHIFT-TAB will go back
-nnoremap <silent> <S-TAB> :bprevious<CR>
 
 " when pasting in visual mode. stop the paste from putting the new test 
 " into the register
@@ -62,10 +54,6 @@ xnoremap p "_dP
 " xnoremap K :move '<-2<CR>gv-gv
 " xnoremap J :move '>+1<CR>gv-gv
 
-" Alternate way to save
-nnoremap <silent> <C-s> :w<CR>
-" Alternate way to quit
-nnoremap <silent> <C-Q> :wq!<CR>
 " Use control-c instead of escape
 nnoremap <silent> <C-c> <Esc>
 " <TAB>: completion.
@@ -102,12 +90,7 @@ nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 
 " make Y behave more like C and D
 nnoremap Y y$
-"nnoremap D d$
 
- " Map : to ; in Normal mode
-" nnoremap ; :
-" xnoremap ; :
-" xnoremap : ;
 
 "complete lines
 " todo, can't seem to get this to work,

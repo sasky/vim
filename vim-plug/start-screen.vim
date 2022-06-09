@@ -5,6 +5,7 @@ let g:startify_lists = [
           \ { 'type': 'dir',       'header': ['   Project '. getcwd()] },
           \ ]
 let g:startify_bookmarks = [
+            \ { 'b': '~/brain.md' },
             \ { 't': '~/todoToday.md' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'a': '~/.config/alacritty/alacritty.yml' },

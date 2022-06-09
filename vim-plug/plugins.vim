@@ -6,15 +6,27 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   "autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+"LVIM TRANSFER 
+" or is there a lvim equivalent?
+" tabnine
+" jk to save 
+" when pasting, dont replavce clipboard 
+"
+"
+"
+    " ENDLVIM TRANSFER 
+
+
+
+
 call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Themes
+    Plug 'ful1e5/onedark.nvim'
     Plug 'hzchirs/vim-material'
     Plug 'hardcoreplayers/oceanic-material'
     Plug 'kristijanhusak/vim-hybrid-material'
     Plug 'rafi/awesome-vim-colorschemes'
-    " Plug 'vim-airline/vim-airline'
-    " Plug 'vim-airline/vim-airline-themes' 
     Plug 'mhinz/vim-startify'
     Plug 'phalkunz/vim-ss'
 
@@ -81,5 +93,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'inkarkat/vim-ReplaceWithRegister'       "TODO get docs for this to remind myself 
     "https://github.com/inkarkat/vim-ReplaceWithRegister
+
+
+    " MySQL integration
+    Plug 'tpope/vim-dadbod' 
+    Plug 'kristijanhusak/vim-dadbod-ui' 
 
 call plug#end()

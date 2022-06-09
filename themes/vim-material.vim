@@ -1,6 +1,15 @@
 " Dark
 set background=dark
 colorscheme vim-material
+" colorscheme rose-pine
+
+" let g:onedark_comment_style = "italic"
+" let g:onedark_keyword_style = "italic"
+" let g:onedark_function_style = "italic"
+" let g:onedark_variable_style = "italic"
+" colorscheme onedark
+
+
 
 " Palenight
 " let g:material_style='palenight'

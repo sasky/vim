@@ -1,8 +1,12 @@
+if $SHELL =~ 'bin/fish'
+    set shell=/bin/sh
+endif
+
 " set leader key
 let g:mapleader = " "
 
-set sidescrolloff=999
-set scrolloff=999
+" set sidescrolloff=999
+" set scrolloff=999
 "syntax enable                           " Enables syntax highlighing
 "set hidden                              " Required to keep multiple buffers open multiple buffers
 "set nowrap                              " Display long lines as just one line
@@ -61,7 +65,7 @@ let loaded_matchparen = 1		" disable highlighting of parans ( it's confusing me 
 filetype plugin indent on	
 
 " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-au! BufWritePost $MYVIMRC source %      
+" au! BufWritePost $MYVIMRC source %      
 
     
 " You can't stop me

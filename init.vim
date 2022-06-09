@@ -18,10 +18,7 @@
 "
 " get phpcsfixer and priettier working good
 "
-" I think the ease of the Side bar naviadtion is what I am missing in VSCode,
-" Maybe learn the shortcuts, if If I can get it to a good work flow 
 "
-" Also I don't think I'm quite happy with file navigation 
 "
 "
 " Get the full file path better displayed
@@ -48,6 +45,7 @@
 " get FZF to search by file type 
 "
 "
+" 
 " get more familiar with the delete yank plugin
 " get more familiar with the text object ciwn plugin
 "
@@ -78,6 +76,12 @@ source $HOME/.config/nvim/vim-plug/fzf.vim
 source $HOME/.config/nvim/vim-plug/vim-smooth-scroll.vim
 source $HOME/.config/nvim/vim-plug/commentry.vim
 source $HOME/.config/nvim/vim-plug/start-screen.vim
+
+nnoremap <silent> <leader>du :DBUIToggle<CR>
+nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
+nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
+nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>
+
 
 autocmd TermOpen * set bufhidden=hide
 

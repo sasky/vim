@@ -22,5 +22,16 @@
   // tabnine
   "tabnine.priority": 10,
   // eslint
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  // elm
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"]
+    }
+  },
+  // If you use neovim you can enable codelenses with this
+  "codeLens.enable": true
 }
+
