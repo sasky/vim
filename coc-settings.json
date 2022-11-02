@@ -32,6 +32,9 @@
     }
   },
   // If you use neovim you can enable codelenses with this
-  "codeLens.enable": true
+  "codeLens.enable": true,
+  "cSpell.userWords": [
+    "todos"
+  ]
 }
 

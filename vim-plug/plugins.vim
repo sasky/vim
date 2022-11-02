@@ -37,6 +37,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'machakann/vim-highlightedyank'
 
     Plug 'tpope/vim-surround'                   "TODO get docs for this to remind myself
+    Plug 'tpope/vim-repeat'
     "https://github.com/tpope/vim-surround
     
     Plug 'tpope/vim-commentary'    "TODO get docs for this to remind myself
